@@ -7,7 +7,7 @@
 
 This example creates custom [PrintCellStyle](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.ColumnBase.PrintCellStyle) for grid columns. In this examples the [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl) contains the [MemoEdit](http://docs.devexpress.com/WPF/DevExpress.Xpf.Editors.MemoEdit), [CheckEdit](http://docs.devexpress.com/WPF/DevExpress.Xpf.Editors.CheckEdit), and [PopupImageEdit](http://docs.devexpress.com/WPF/DevExpress.Xpf.Editors.PopupImageEdit) editors:
 
-![image](https://user-images.githubusercontent.com/65009440/173365310-65fcc6e0-f0d2-46fd-9663-6f387f3b81c8.png)
+![image](https://user-images.githubusercontent.com/65009440/173365310-65fcc6e0-f0d2-46fd-9663-6f387f3b81c8.png) 
 
 The following image shows the [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl)'s print preview:
 
