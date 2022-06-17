@@ -6,18 +6,15 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E3227
-Imports System.Windows.Media
+Imports System.Windows
 
 Namespace GridExample
 
-    Public Class TestData
+    ''' <summary>
+    ''' Interaction logic for App.xaml
+    ''' </summary>
+    Public Partial Class App
+        Inherits Application
 
-        Public Property PlainText As String
-
-        Public Property MemoText As String
-
-        Public Property BooleanMember As Boolean
-
-        Public Property Image As ImageSource
     End Class
 End Namespace
