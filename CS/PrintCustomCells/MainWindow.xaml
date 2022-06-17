@@ -1,0 +1,98 @@
+﻿<Window x:Class="PrintCustomCells.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PrintCustomCells"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
+        xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
+        Height="450" Width="800">
+    <Window.Resources>
+        <dx:BoolToObjectConverter x:Key="BoolToTextConverter" TrueValue="Avaliable" FalseValue="NotAvaliable"/>
+        <Style x:Key="MemoColumnPrintingStyle" 
+               TargetType="dxe:MemoEdit" 
+               BasedOn="{StaticResource {dxgt:TableViewThemeKey ResourceKey=DefaultPrintCellStyle}}">
+            <Style.Setters>
+                <Setter Property="dxp:ExportSettings.TargetType" Value="Panel"/>
+                <Setter Property="DisplayTemplate">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="dxe:MemoEdit">
+                            <dxe:TextEdit Text="{Binding Value}"
+                                          TextWrapping="Wrap"
+                                          IsPrintingMode="True"
+                                          VerticalContentAlignment="Center"
+                                          HorizontalContentAlignment="Center"
+                                          Margin="4"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        
+        <Style x:Key="CheckEditColumnPrintingStyle" 
+               TargetType="dxe:CheckEdit" 
+               BasedOn="{StaticResource {dxgt:TableViewThemeKey ResourceKey=DefaultPrintCellStyle}}">
+            <Style.Setters>
+                <Setter Property="dxp:ExportSettings.TargetType" Value="Panel"/>
+                <Setter Property="DisplayTemplate">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="dxe:CheckEdit">
+                            <dxe:TextEdit Text="{Binding Path=Value, Converter={StaticResource BoolToTextConverter}}"
+                                          HorizontalAlignment="Center"
+                                          Margin="4"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        
+        <Style x:Key="ImageColumnPrintingStyle" 
+               TargetType="{x:Type dxe:PopupImageEdit}" 
+               BasedOn="{StaticResource {dxgt:TableViewThemeKey ResourceKey=DefaultPrintCellStyle}}">
+            <Setter Property="dxp:ExportSettings.TargetType" Value="Panel"/>
+            <Setter Property="DisplayTemplate">
+                <Setter.Value>
+                    <ControlTemplate TargetType="dxe:PopupImageEdit">
+                        <dxe:ImageEdit Source="{Binding Path=Value}"
+                                       IsPrintingMode="True" 
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="4"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <dxg:GridControl Name="grid">
+            <dxg:GridColumn FieldName="PlainText"/>
+            <dxg:GridColumn FieldName="MemoText"
+                            PrintCellStyle="{StaticResource MemoColumnPrintingStyle}">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:MemoEditSettings/>
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
+            <dxg:GridColumn FieldName="BooleanMember"
+                            PrintCellStyle="{StaticResource CheckEditColumnPrintingStyle}">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:CheckEditSettings/>
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
+            <dxg:GridColumn FieldName="Image"
+                            PrintCellStyle="{StaticResource ImageColumnPrintingStyle}">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:PopupImageEditSettings/>
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
+            <dxg:GridControl.View>
+                <dxg:TableView Name="view"/>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+        <Button Grid.Row="1" Content="Show Print Preview" Command="{Binding Commands.ShowPrintPreview, ElementName=view}"/>
+    </Grid>
+</Window>
