@@ -32,7 +32,7 @@ The following image shows the [GridControl](https://docs.devexpress.com/WPF/DevE
 * [WPF Data Grid - Print and Export the GridControl](https://github.com/DevExpress-Examples/how-to-print-and-export-the-grid-e1669)
 * [WPF Data Grid - Specify a Custom Print Template for Group Summaries](https://github.com/DevExpress-Examples/how-to-provide-a-custom-print-template-for-group-summaries-e2032)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-data-grid-customize-print-export-appearance&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-data-grid-customize-print-export-appearance&~~~was_helpful=no)
 
