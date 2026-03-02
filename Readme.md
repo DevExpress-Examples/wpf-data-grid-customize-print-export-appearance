@@ -30,7 +30,6 @@ The following image shows the [GridControl](https://docs.devexpress.com/WPF/DevE
 ## More Examples
 
 * [WPF Data Grid - Print and Export the GridControl](https://github.com/DevExpress-Examples/how-to-print-and-export-the-grid-e1669)
-* [WPF Data Grid - Specify a Custom Print Template for Group Summaries](https://github.com/DevExpress-Examples/how-to-provide-a-custom-print-template-for-group-summaries-e2032)
 <!-- feedback -->
 ## Does This Example Address Your Development Requirements/Objectives?
 
